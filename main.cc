@@ -20,8 +20,8 @@ main(int argc, char** argv)
   if (argc < 2) {
     stat = SendMessage(ime, WM_IME_CONTROL, IMC_GETOPENSTATUS, 0);
   } else {
-    stat = std::atoi(argv[1]);
-    SendMessage(ime, WM_IME_CONTROL, IMC_SETOPENSTATUS, stat);
+    stat = SendMessage(ime, WM_IME_CONTROL, IMC_GETOPENSTATUS, 0);
+    SendMessage(ime, WM_IME_CONTROL, IMC_SETOPENSTATUS, std::atoi(argv[1]));
   }
   std::printf("%d\n", stat);
   return 0;
